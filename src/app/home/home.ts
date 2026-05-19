@@ -5,18 +5,8 @@ import { HousingLocationInfo } from "../housinglocation";
 @Component({
   selector: "app-home",
   imports: [HousingLocation],
-  template: `
-    <section>
-      <form>
-        <input type="text" placeholder="Filter by city" />
-        <button class="primary" type="button">Search</button>
-      </form>
-    </section>
-    <section class="results">
-      <app-housing-location />
-    </section>
-  `,
-  styleUrls: ["./home.css"],
+  templateUrl: "./home.html",
+  styleUrl: "./home.css",
 })
 export class Home {
   readonly baseUrl = "https://angular.dev/assets/images/tutorials/common";

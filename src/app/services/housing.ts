@@ -1,14 +1,10 @@
-import { Component } from "@angular/core";
-import { HousingLocation } from "../housing-location/housing-location";
-import { HousingLocationInfo } from "../housinglocation";
+import { Injectable } from "@angular/core";
+import { HousingLocationInfo } from "../interfaces/housinglocation";
 
-@Component({
-  selector: "app-home",
-  imports: [HousingLocation],
-  templateUrl: "./home.html",
-  styleUrl: "./home.css",
+@Injectable({
+  providedIn: "root",
 })
-export class Home {
+export class Housing {
   readonly baseUrl = "https://angular.dev/assets/images/tutorials/common";
 
   housingLocationList: HousingLocationInfo[] = [
@@ -113,4 +109,13 @@ export class Home {
       laundry: true,
     },
   ];
+
+  getAllHousingLocations(): HousingLocationInfo[] {
+    return this.housingLocationList;
+  }
+  getHousingLocationById(id: number): HousingLocationInfo | undefined {
+    return this.housingLocationList.find(
+      (housingLocation) => housingLocation.id === id,
+    );
+  }
 }
